@@ -3,6 +3,7 @@ import sys
 
 from protocol_core import defines as defs
 
+
 class ConfigLoader:
     def load_model(self, model_path: str):
         server_model = {}
@@ -61,6 +62,3 @@ class ConfigLoader:
         data_block[defs.BLOCK_LENGTH] = block_len
         data_block[defs.BLOCK_START_ADDRESS] = start_address
         return data_block
-            
-
-    
