@@ -1,0 +1,25 @@
+#!/bin/sh
+
+RED_BG="\033[41m"
+GREEN_BG="\033[42m"
+BLACK_BG="\033[40m"
+NO_COLOR="\033[0m"
+PYLINT_FAIL="pylint...................................................................${RED_BG}Failed${NO_COLOR}\n"
+PYLINT_SUCCESS="pylint...................................................................${GREEN_BG}Passed${NO_COLOR}\n"
+PYLINT_SKIPPED="................................................(no files to check)${BLACK_BG}Skipped${NO_COLOR}\n"
+
+MODIFIED_PYTHON_FILES=$(git diff-index --cached --name-only HEAD -- '*.py')
+
+if [ "$MODIFIED_PYTHON_FILES" ]; then
+    PYLINT_OUT=$(./venv/bin/pylint --score=n $MODIFIED_PYTHON_FILES)
+else
+    printf "$PYLINT_SKIPPED"
+    exit 0
+fi
+
+if [ "$PYLINT_OUT" ]; then
+    printf "$PYLINT_FAIL $PYLINT_OUT\n"
+    exit 1
+else
+    printf "$PYLINT_SUCCESS"
+fi
