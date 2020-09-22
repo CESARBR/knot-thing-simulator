@@ -1,0 +1,33 @@
+{
+    "id": 1,
+	"register_data": [{
+			"address": "0",
+			"value": ["0xEA60"]
+		},
+		{
+			"address": "10",
+			"value":["0x6C00", "0x88CA"]
+		},
+		{
+			"address": "20",
+			"value": ["0x2800", "0xEE6B"]
+        },
+        {
+			"address": "30",
+			"value": ["0x0000", "0xFB12", "0x03D3", "0xF0BC"]
+        },
+        {
+			"address": "40",
+			"value": ["0x0000", "0x314C", "0xD9B8", "0x98A7"]
+		}
+    ],
+    "digital_data": [{
+        "address": "0",
+        "value": "1"
+    },
+    {
+        "address": "16",
+        "value": ["0", "1", "0", "1", "1", "1", "1", "1"]
+    }    
+    ]
+}
