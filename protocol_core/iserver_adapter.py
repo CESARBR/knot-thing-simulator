@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 
+
 class IServerAdapter(ABC):
     def __init__(self):
         self.running = False
@@ -16,16 +17,17 @@ class IServerAdapter(ABC):
         pass
 
     @abstractmethod
-    def add_data_block(self, server_id: int, name, block_type,
-                       start_address, length) -> bool:
+    def add_data_block(
+        self, server_id: int, name, block_type, start_address, length
+    ) -> bool:
         """ Adds a new data block to server """
         pass
-    
+
     @abstractmethod
     def set_data_value(self, server_id, block_name, address, value) -> bool:
         """ Sets a value of a server's data block """
         pass
-    
+
     @abstractmethod
     def stop(self) -> bool:
         """ Stops server """
