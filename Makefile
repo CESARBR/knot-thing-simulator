@@ -1,4 +1,3 @@
-PYTHON_MODULES := knotpdm
 PYTHONPATH := .
 VENV := venv
 BIN := $(VENV)/bin
@@ -12,7 +11,7 @@ PRE_COMMIT := $(BIN)/pre-commit
 APP_NAME := knot-thing-simulator
 
 run:
-	sudo $(PYTHON) knot-thing-simulator.py
+	sudo $(PYTHON) $(APP_NAME).py
 
 bootstrap: venv \
 	   requirements \

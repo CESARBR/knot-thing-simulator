@@ -25,7 +25,7 @@ def main(argv):
         print("Loading default config file: config/config.json")
     for opt, arg in opts:
         if opt == "-h":
-            print("main.py -c <config-file>.json")
+            print("use: make run")
             sys.exit()
         elif opt in ("-c", "--config"):
             config_path = arg
