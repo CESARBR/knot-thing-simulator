@@ -9,7 +9,10 @@ PIP := $(BIN)/pip
 REQUIREMENTS := -r requirements.txt
 PRE_COMMIT := $(BIN)/pre-commit
 
-run: sudo $(PYTHON) main.py
+APP_NAME := knot-thing-simulator
+
+run:
+	sudo $(PYTHON) knot-thing-simulator.py
 
 bootstrap: venv \
 	   requirements \
