@@ -84,6 +84,59 @@ From the root dir run:
 sudo env PYTHONPATH=. python <file>
 ```
 
+### Docker Installation and Usage
+
+#### Pre-requisites
+
+To install the **project's Docker installation pre-requisites**, please follow the instructions in the link below:
+
+- [Docker](https://docs.docker.com/get-docker/)
+
+> _**Note**: if you're using a Linux system, please take a look at [Docker's post-installation steps for Linux](https://docs.docker.com/engine/install/linux-postinstall/)!_
+
+#### Building and running
+
+Once you have all pre-requisites installed, change your current working directory to the project's root:
+
+```bash
+# change current working directory
+$ cd <path/to/knot-thing-simulator>
+```
+
+##### Development
+
+In order to build the **Docker development image**, use the command below:
+
+```bash
+# build docker image from Dockerfile-dev
+$ docker build . --file Dockerfile-dev --tag knot-thing-simulator:dev
+```
+
+Finally, run the **development** container with the following command:
+
+```bash
+# start the container and clean up upon exit.
+$ docker run --rm --publish 502:502 --volume `pwd`:/usr/src/app --tty --interactive knot-thing-simulator:dev
+```
+
+>**_Note_**: the `--volume` flag binds and mounts `pwd` (your current working directory) to the container's `/usr/src/app` directory. This means that the changes you make outside the container will be reflected inside (and vice-versa). You may use your IDE to make code modifications, additions, deletions and so on, and these changes will be persisted both in and outside the container.
+
+##### Production
+
+In order to build the **Docker production image**, use the command below:
+
+```bash
+# build docker image from Dockerfile
+$ docker build . --file Dockerfile --tag knot-thing-simulator
+```
+
+Finally, run the **production** container with the following command:
+
+```bash
+# start the container and clean up upon exit.
+$ docker run --rm --publish 502:502 --volume `pwd`:/usr/src/app --tty --interactive knot-thing-simulator
+```
+
 ## Configure the simulator
 The simulator provides an easy configuration template (config/config.json).
 In order to create a data server model of industrial things you need to follow the config template, where the fields are explained bellow:
