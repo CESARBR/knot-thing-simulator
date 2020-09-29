@@ -1,0 +1,7 @@
+.git/
+venv/
+hooks/
+.gitignore
+Makefile
+.pre-commit-config.yaml
+README.md
