@@ -1,0 +1,39 @@
+[
+  {
+    "thing": "BM20",
+    "sensors": [
+      {
+        "name": "fluxo_de_ar_geral",
+        "last_value": "-37",
+        "type": "int",
+        "mean": "-37.28",
+        "standard_deviation": "0.53",
+        "sampling_rate": "15"
+      },
+      {
+        "name": "iCam_Spindle_Oil_Pressure",
+        "last_value": "43",
+        "type": "int",
+        "mean": "42.82374101",
+        "standard_deviation": "10.02561823",
+        "sampling_rate": "15"
+      },
+      {
+        "name": "iClutch_Supply_Air_pressure",
+        "last_value": "84",
+        "type": "int",
+        "mean": "84.3381295",
+        "standard_deviation": "7.424870752",
+        "sampling_rate": "15"
+      },
+      {
+        "name": "iCoolant_Flow_GPM",
+        "last_value": "26",
+        "type": "int",
+        "mean": "25.87835052",
+        "standard_deviation": "8.420486465",
+        "sampling_rate": "15"
+      }
+    ]
+  }
+]

@@ -4,14 +4,17 @@ BIN := $(VENV)/bin
 
 PYTHON := env PYTHONPATH=$(PYTHONPATH) $(BIN)/python
 PIP := $(BIN)/pip
+PYTEST := $(BIN)/pytest
 
 REQUIREMENTS := -r requirements.txt
 PRE_COMMIT := $(BIN)/pre-commit
 
-PYMODULE := knot_thing_simulator
+PYMODULE := simulator
+PYAPP := knot_thing_simulator
 
+TESTS := tests
 run:
-	sudo $(PYTHON) $(PYMODULE).py
+	sudo $(PYTHON) $(PYAPP).py
 
 bootstrap: venv \
 	   requirements \
@@ -35,3 +38,6 @@ clean:
 clean-all: clean
 		rm -r $(VENV)
 		rm .git/hooks/pre-commit
+
+test:
+	$(PYTEST) --cov=$(PYMODULE) $(TESTS)

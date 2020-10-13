@@ -6,6 +6,18 @@ def get_project_root_path() -> Path:
     return Path(__file__).parent.parent
 
 
+# THING CONFIG JSON TAGS #
+THING = "thing"
+SENSORS = "sensors"
+SENSOR_MODEL = "sensor_model"
+SENSOR_NAME = "name"
+SENSOR_LAST_VALUE = "last_value"
+SENSOR_TYPE = "type"
+SENSOR_MEAN = "mean"
+SENSOR_STD = "standard_deviation"
+SAMPLING_RATE = "sampling_rate"
+SAMPLING_RATE_UNIT = "sampling_rate_unit"
+
 # PROTOCOL MODBUS SERVER BLOCKS #
 BLOCK_DIGITAL_RO = 0
 BLOCK_DIGITAL_RW = 1
