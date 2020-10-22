@@ -33,6 +33,134 @@
         "mean": "25.87835052",
         "standard_deviation": "8.420486465",
         "sampling_rate": "15"
+      },
+      {
+        "name": "iCoolant_Temperature_Analog",
+        "last_value": "437",
+        "type": "int",
+        "mean": "423.463917525773",
+        "standard_deviation": "7.816677783",
+        "sampling_rate": "15"
+      },
+      {
+        "name": "iCooling_Water_Flow",
+        "last_value": "11",
+        "type": "int",
+        "mean": "7.179381443",
+        "standard_deviation": "5.068822588",
+        "sampling_rate": "15"
+      },
+      {
+        "name": "iCooling_Water_Temperature_Analog",
+        "last_value": "279",
+        "type": "int",
+        "mean": "277.9752577",
+        "standard_deviation": "28.65827816",
+        "sampling_rate": "15"
+      },
+      {
+        "name": "iFilter_Input_Pressure",
+        "last_value": "1108",
+        "type": "int",
+        "mean": "1028.637113",
+        "standard_deviation": "255.3366524",
+        "sampling_rate": "15"
+      },
+      {
+        "name": "iHeat_Exchanger_Oil_Pressure",
+        "last_value": "38",
+        "type": "int",
+        "mean": "33.18705036",
+        "standard_deviation": "9.163632267",
+        "sampling_rate": "15"
+      },
+      {
+        "name": "iHydrostatic_Ram_Bushing_Air_Pressure",
+        "last_value": "89",
+        "type": "int",
+        "mean": "87.15467626",
+        "standard_deviation": "8.323709525",
+        "sampling_rate": "15"
+      },
+      {
+        "name": "iMain_Bearing_Flywheel_Side_Pressure",
+        "last_value": "492",
+        "type": "int",
+        "mean": "437.6366906",
+        "standard_deviation": "108.720159923969",
+        "sampling_rate": "15"
+      },
+      {
+        "name": "iMain_Bearing_Operator_side_Pressure",
+        "last_value": "505",
+        "type": "int",
+        "mean": "446.6007194",
+        "standard_deviation": "110.7297445",
+        "sampling_rate": "15"
+      },
+      {
+        "name": "iNitrogen_Domer_Pressure",
+        "last_value": "519",
+        "type": "int",
+        "mean": "500.9352518",
+        "standard_deviation": "22.42784904",
+        "sampling_rate": "15"
+      },
+      {
+        "name": "iOil_Temperature_Analog",
+        "last_value": "496",
+        "type": "int",
+        "mean": "479.0701031",
+        "standard_deviation": "25.21271556",
+        "sampling_rate": "15"
+      },
+      {
+        "name": "iRecirc_Pump_Flow",
+        "last_value": "19",
+        "type": "int",
+        "mean": "17.74020619",
+        "standard_deviation": "4.420385248",
+        "sampling_rate": "15"
+      },
+      {
+        "name": "iRedraw_Fly_Side_Pressure",
+        "last_value": "94",
+        "type": "int",
+        "mean": "86.54226804",
+        "standard_deviation": "18.52686142",
+        "sampling_rate": "15"
+      },
+      {
+        "name": "iRedraw_Op_Side_Pressure",
+        "last_value": "94",
+        "type": "int",
+        "mean": "86.51546392",
+        "standard_deviation": "18.38146828",
+        "sampling_rate": "15"
+      },
+      {
+        "name": "iStatic_Lube_pressure",
+        "last_value": "1072",
+        "type": "int",
+        "mean": "1004.478417",
+        "standard_deviation": "231.7582413",
+        "sampling_rate": "15"
+      },
+      {
+        "name": "iSwing_Lever_Flywheel_Side_Pressure",
+        "last_value": "388",
+        "type": "int",
+        "mean": "346.1079137",
+        "standard_deviation": "87.08717311",
+        "sampling_rate": "15"
+      },
+      {
+        "name": "iSwing_Lever_Operator_Side_Pressure",
+        "last_value": "391",
+        "type": "int",
+        "mean": "349.0647482",
+        "standard_deviation": "86.76095013",
+        "sampling_rate": "15"
       }
     ]
   }
