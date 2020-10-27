@@ -4,9 +4,9 @@ import modbus_tk
 import modbus_tk.defines as cst
 from modbus_tk import modbus_tcp
 
-import protocol_core
-from protocol_core.iserver_adapter import IServerAdapter
-import protocol_core.defines as defs
+import simulator.protocol_core
+from simulator.protocol_core.iserver_adapter import IServerAdapter
+import simulator.definitions as defs
 
 
 class ModbusTkTcpServerAdapter(IServerAdapter):
@@ -24,7 +24,7 @@ class ModbusTkTcpServerAdapter(IServerAdapter):
         self._logger = logger
 
     def __del__(self):
-        if self.running == True:
+        if self.running:
             self.tcp_server.stop()
             self.running = False
 
@@ -46,7 +46,7 @@ class ModbusTkTcpServerAdapter(IServerAdapter):
 
     def add_data_server(self, id):
         """ Adds a new modbus server """
-        if self.running == True:
+        if self.running:
             try:
                 self.tcp_server.add_slave(id)
                 self._logger.info("Added modbus server with id = %d ", id)
@@ -61,7 +61,7 @@ class ModbusTkTcpServerAdapter(IServerAdapter):
 
     def add_data_block(self, server_id, name, block_type, start_address, length):
         """ Adds a new block of register to a modbuser server """
-        if self.running == True:
+        if self.running:
             try:
                 self._logger.info(
                     "Adding block for server (%d) - block name (%s) \
@@ -77,34 +77,29 @@ class ModbusTkTcpServerAdapter(IServerAdapter):
                     return False
                 server.add_block(name, mapped_block, start_address, length)
                 return True
-            except Exception as err:
+            except:
                 self._logger.error("Error occured while adding new block.")
-                print(err)
                 return False
         else:
             self._logger.warning("Tcp server not running yet.")
             return False
 
-    def set_data_value(self, server_id, block_name, address, value):
+    def set_data_value(self, server_id, block_name, address, values):
         """ Updates a modbus server register value """
-        if self.running == True:
+        if self.running:
             try:
-                self._logger.info(
-                    "set value for server (%d) - block name (%s) \
-                    - start_address (%d) and value (%d).",
-                    server_id,
-                    block_name,
-                    address,
-                    value,
-                )
                 server = self.tcp_server.get_slave(server_id)
-                server.set_values(block_name, address, value)
+                server.set_values(block_name, address, values)
+                self._logger.info(
+                    "Set data value [%s] to server %d address %d",
+                    values,
+                    server_id,
+                    address,
+                )
                 return True
-            except:
+            except modbus_tk.modbus.OutOfModbusBlockError as ex:
                 self._logger.error(
-                    "Some error occurred while trying to add \
-                    a value to block: %s",
-                    block_name,
+                    "Some error occurred while trying to add  a value to block: %s", ex,
                 )
                 return False
         else:
@@ -114,7 +109,7 @@ class ModbusTkTcpServerAdapter(IServerAdapter):
     def stop(self):
         """Stops the tcp server and closes modbus servers
         connections"""
-        if self.running == True:
+        if self.running:
             self._logger.info("Tcp server: Stopping...")
             self.tcp_server.stop()
             self.running = False

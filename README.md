@@ -15,13 +15,11 @@ Check out our [currently supported protocols](#supported-protocols).
 
 ## Setup
 
-In order to use this project it's necessary to install its dependencies and add the pre-commit hooks, to simplify this process a `Makefile` was used. Since not all users may like the idea of using a makefile in a python project, this README was separated in two sections: the first explaining how to build and run the project with the [Makefile](#installation-and-usage-with-the-makefile) and the second [without it](#manual-installation-and-usage).
+In order to use this project it's necessary to install its dependencies and add the pre-commit hooks, to simplify this process a `bash script` was used. Since not all users may like the idea of using a bash script in a python project, this README was separated in two sections: the first explaining how to build and run the project with the [bash script](#installation-and-usage-with-the-bash) and the second [without it](#manual-installation-and-usage).
 
-### Installation and usage with the Makefile
+### Installation and usage with the Bash
 
-#### Pre-requisites
-- [Make](https://www.gnu.org/software/make/).
-
+In order to run the simulator `bash script` is necessary to give R/W/E permissions (744 or higher).
 #### Installation
 
 First, change your current working directory to the project's root directory and bootstrap the project:
@@ -31,12 +29,24 @@ First, change your current working directory to the project's root directory and
 $ cd <path/to/knot-thing-simulator>
 
 # install project dependencies
-$ make bootstrap
+$ ./run_simulator.sh -b
 ```
 
 #### Usage
 
-In order to run the main script simply use the `make run` command.
+You can read the helper by running the command `./run_simulator.sh -h`.
+
+In order to run a RAW simulation of a modbus databank from a config file, use:
+`./run_simulator.sh -r <path-to-config-file>`
+
+In order to run a Thing simulation from a config file, use:
+`./run_simulator.sh -t <path-to-config-file>`
+
+In order to clean installation of dependencies:
+`./run_simulator.sh -a`
+
+In order to clean compiled files:
+`./run_simulator.sh -c`
 
 ### Manual installation and usage
 
@@ -138,6 +148,8 @@ $ docker run --rm --publish 502:502 --volume `pwd`:/usr/src/app --tty --interact
 ```
 
 ## Configure the simulator
+
+# RAW simulation
 The simulator provides an easy configuration template (config/config.json).
 In order to create a data server model of industrial things you need to follow the config template, where the fields are explained bellow:
 
@@ -150,6 +162,19 @@ In order to create a data server model of industrial things you need to follow t
     - Each digital_data has the following fields:
         - address: Identifies data inside the data-block related to discrete block.
         - value: List of values with little-endian representation in binary.
+
+# Thing simulation
+The simulator provides an easy configuration template for thing simulation (config/thing_config.json).
+In order to create a thing simulation model you need to follow the config template, where the fields are explained bellow:
+
+- thing: A name for the thing to be modeled.
+- sensors: A list of sensors which represents the thing.
+  - name: Name for the sensor.
+  - last_value: Last measured value of this sensor.
+  - type: Sensor value type (Int or Bool).
+  - mean: Mean value of this sensor.
+  - standard_deviation: Standard deviation of this sensor.
+  - sampling_rate: Sampling rate to simulate this sensor.
 
 ## Supported Protocols
 

@@ -1,0 +1,20 @@
+[
+  {
+    "sensors": [
+      {
+        "name": "pressure",
+        "last_value": "40",
+        "type": "int",
+        "mean": "42",
+        "standard_deviation": "2",
+        "sampling_rate": "60"
+      },
+      {
+        "name": "digital_in",
+        "last_value": "9",
+        "type": "bool",
+        "sampling_rate": "15"
+      }
+    ]
+  }
+]
